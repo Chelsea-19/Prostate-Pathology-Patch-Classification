@@ -1,12 +1,3 @@
-#!/usr/bin/env python
-"""
-Main entry point for prostate pathology patch classification.
-
-Usage:
-    python run_train.py --train_dirs <paths> --val_dirs <paths> [options]
-    
-    python run_train.py --run_ablation --train_dirs <paths> --val_dirs <paths>
-"""
 import argparse
 import os
 import pandas as pd
@@ -21,7 +12,6 @@ from src.explain import save_class_visualizations
 
 
 def parse_args():
-    """Parse command line arguments."""
     parser = argparse.ArgumentParser(
         description="Prostate Pathology Classification with UNI",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
@@ -32,16 +22,14 @@ def parse_args():
         "--train_dirs",
         nargs="+",
         required=True,
-        help="Training data directories (e.g., SetA/251_Train_A SetB/251_Train_B)",
     )
     parser.add_argument(
         "--val_dirs",
         nargs="+",
         required=True,
-        help="Validation data directories",
     )
     
-    # Training hyperparameters
+    # Hyperparameters setting
     parser.add_argument("--batch_size", type=int, default=32)
     parser.add_argument("--epochs", type=int, default=15)
     parser.add_argument("--lr", type=float, default=1e-4, help="Learning rate")
@@ -322,3 +310,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
