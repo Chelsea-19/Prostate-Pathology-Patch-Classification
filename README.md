@@ -137,11 +137,10 @@ After training, the following files are generated in `--out_dir`:
 ## Project Structure
 
 ```
-prostate_classification/
+prostate_pathology_patch_classification/
 ├── README.md
 ├── requirements.txt
 ├── src/
-│   ├── __init__.py
 │   ├── data.py       # Dataset loading, transforms, sampler
 │   ├── model.py      # UNI backbone + classification head
 │   ├── train.py      # Training loop
@@ -163,3 +162,4 @@ With default settings (15 epochs, lr=1e-4, use_sampler=True):
 - **Class Order**: `['G3', 'G4', 'G5', 'Normal', 'Stroma']` (alphabetical, from ImageFolder)
 - **Reproducibility**: Fixed seed (42 by default), but some GPU non-determinism may remain
 - DataLoader worker seed control is implemented for better reproducibility
+
